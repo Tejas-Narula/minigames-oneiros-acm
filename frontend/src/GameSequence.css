@@ -1,0 +1,375 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Inter:wght@400;600&display=swap');
+
+:root {
+  --bg-dark: #0f172a;
+  --bg-panel: #1e293b;
+  --primary: #6366f1;
+  /* Indigo */
+  --accent: #8b5cf6;
+  /* Purple */
+  --neon: #00f0ff;
+  /* Cyan */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+}
+
+/* --- MAIN LAYOUT --- */
+.game-sequence-container {
+  display: flex;
+  flex-direction: column;
+  /* Vertical stack: Header -> Main Stage */
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--bg-dark);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+}
+
+/* --- 1. HEADER (Sleek) --- */
+.sequence-header {
+  flex-shrink: 0;
+  background-color: var(--bg-panel);
+  border-bottom: 1px solid var(--primary);
+  padding: 0.75rem 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 50;
+  position: relative;
+}
+
+.header-content {
+  max-width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mission-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.mission-label {
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--neon);
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.mission-title {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 1.4rem;
+  font-weight: 800;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.step-count {
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.progress-section {
+  width: 300px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.xp-bar-container {
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  transition: width 0.3s ease;
+}
+
+.unlock-count-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 146, 60, 0.1));
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.timer-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1));
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #60a5fa;
+  font-size: 0.9rem;
+}
+
+/* --- 2. MAIN STAGE (Split View) --- */
+.game-stage-layout {
+  flex: 1;
+  /* Fills remaining vertical space */
+  display: flex;
+  /* Side-by-side layout */
+  flex-direction: row;
+  overflow: hidden;
+  /* Prevent outer scroll */
+  position: relative;
+}
+
+/* LEFT: Game Content Area */
+.game-content-area {
+  flex: 1;
+  /* Takes all available width */
+  overflow-y: auto;
+  /* Internal scroll for game */
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Scrollbar for Game Content Area */
+.game-content-area::-webkit-scrollbar {
+  width: 10px;
+}
+
+.game-content-area::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.6), rgba(30, 41, 59, 0.6));
+  border-radius: 5px;
+}
+
+.game-content-area::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.5), rgba(99, 102, 241, 0.5));
+  border-radius: 5px;
+  border: 2px solid rgba(99, 102, 241, 0.15);
+  transition: background 0.3s ease;
+}
+
+.game-content-area::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.8), rgba(99, 102, 241, 0.8));
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.2);
+}
+
+/* Force children to fill height */
+.game-content-area>div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* RIGHT: Global Sidebar Area */
+.global-sidebar-area {
+  width: 320px;
+  /* Fixed width for sidebar */
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(15, 23, 42, 0.95);
+  /* Dark background */
+  flex-shrink: 0;
+  /* Prevent squishing */
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Transitions */
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .global-sidebar-area {
+    display: none;
+    /* Hide sidebar on small screens to prioritize game */
+  }
+}
+
+/* ... (Your existing CSS) ... */
+
+/* --- GLOBAL UNLOCK MODAL --- */
+.unlock-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  /* Dark dimmed background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  /* Highest priority */
+  backdrop-filter: blur(5px);
+}
+
+.unlock-card {
+  background: linear-gradient(135deg, #eab308 0%, #ea580c 100%);
+  /* Gold/Orange Gradient */
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 50px rgba(234, 179, 8, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.unlock-icon-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.unlock-sparkle {
+  position: absolute;
+  color: #fef08a;
+  /* Yellow-100 */
+}
+
+.unlock-sparkle.s1 {
+  top: -10px;
+  right: -20px;
+  animation: spin 2s infinite linear;
+}
+
+.unlock-sparkle.s2 {
+  bottom: -5px;
+  left: -20px;
+  animation: pulse 1.5s infinite;
+}
+
+.unlock-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.unlock-details {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(5px);
+}
+
+.unlock-details h3 {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+}
+
+.unlock-details p {
+  color: rgba(0, 0, 0, 0.8);
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.unlock-btn {
+  background-color: white;
+  color: #ea580c;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.unlock-btn:hover {
+  transform: scale(1.05);
+  background-color: #fff7ed;
+}
+
+/* Animations */
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}

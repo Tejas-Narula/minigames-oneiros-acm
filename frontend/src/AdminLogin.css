@@ -1,0 +1,173 @@
+/* Import the font to match dashboard */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --bg-dark: #0f172a;       /* Deep Slate */
+  --bg-panel: #1e293b;      /* Lighter Slate */
+  --primary: #6366f1;       /* Indigo */
+  --text-main: #f8fafc;     /* White-ish */
+  --text-muted: #94a3b8;    /* Grey */
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+.admin-login-container {
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.admin-login-card {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 50px 40px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Deep shadow */
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.admin-login-logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  margin-left: 120px;
+  /* border-radius: 12px; */
+  /* Optional: adds a subtle glow to the logo */
+  /* box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);  */
+}
+
+.admin-login-card h1 {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.admin-login-card p {
+  margin: 8px 0 30px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.admin-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-icon {
+  position: absolute;
+  left: 15px;
+  font-size: 18px;
+  z-index: 10;
+  opacity: 0.7;
+}
+
+.password-input {
+  width: 100%;
+  padding: 14px 14px 14px 45px;
+  background-color: rgba(0, 0, 0, 0.2); /* Darker input bg */
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  color: var(--text-main);
+  transition: all 0.2s ease;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+.password-input::placeholder {
+  color: #475569;
+}
+
+.password-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+.error-message {
+  color: #ef4444; /* Red */
+  background: rgba(239, 68, 68, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin: -10px 0 0 0;
+  font-weight: 500;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.admin-login-btn {
+  padding: 14px 24px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-login-btn:hover {
+  background-color: #4f46e5; /* Slightly darker indigo */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.admin-login-btn:active {
+  transform: translateY(0);
+}
+
+.admin-login-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  font-size: 14px;
+}
+
+.back-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.back-link:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 600px) {
+  .admin-login-card {
+    padding: 30px 20px;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
+}

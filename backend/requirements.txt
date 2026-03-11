@@ -1,0 +1,7 @@
+Flask
+Flask-SQLAlchemy
+Flask-Cors
+Flask-Compress
+psycopg2-binary>=2.9.10
+python-dotenv
+gunicorn

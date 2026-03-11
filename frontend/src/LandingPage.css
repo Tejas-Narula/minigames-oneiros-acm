@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Fredoka:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: auto;
+}
+
+.landing-container {
+  font-family: 'Fredoka', sans-serif;
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  /* Blue gradient sky */
+  background: linear-gradient(180deg, #2b86c5 0%, #1e6fa0 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Rays effect */
+.bg-rays {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.04) 0px,
+    rgba(255, 255, 255, 0.04) 40px,
+    transparent 40px,
+    transparent 80px
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.content-wrapper {
+  font-family: 'Fredoka', sans-serif;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  /* Margin to account for tall grass */
+  margin-bottom: 120px; 
+}
+
+/* --- Header & Logo --- */
+.presenter-header {
+  font-family: 'Fredoka', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.club-logo {
+  height: 60px;
+  width: auto;
+  filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2));
+}
+
+.club-badge {
+  font-family: 'Fredoka', sans-serif;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.9);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-block;
+  transform: rotate(-2deg);
+  box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* --- Typography --- */
+.event-title {
+  font-family: 'Carter One', cursive;
+  font-size: 6rem;
+  line-height: 0.9;
+  text-transform: uppercase;
+  text-shadow: 
+    3px 3px 0px #0e4b75, 
+    6px 6px 0px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+  transform: rotate(-2deg);
+}
+
+.title-offset {
+  display: block;
+  font-size: 3.5rem;
+  margin-left: 20px;
+}
+
+.event-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* --- GAME CARDS GRID --- */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.game-card-btn {
+  background: linear-gradient(to bottom, #d48b5e, #a65e33);
+  border: 3px solid #5e2c18;
+  border-radius: 16px;
+  padding: 20px 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow:
+    0 6px 0 #5e2c18,
+    0 10px 10px rgba(0,0,0,0.3);
+  transition: all 0.15s;
+  text-decoration: none;
+  color: white;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.game-card-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 0 #5e2c18,
+    0 14px 14px rgba(0,0,0,0.3);
+}
+
+.game-card-btn:active {
+  transform: translateY(3px);
+  box-shadow:
+    0 2px 0 #5e2c18,
+    0 4px 6px rgba(0,0,0,0.3);
+}
+
+.game-card-icon {
+  font-size: 2.5rem;
+}
+
+.game-card-name {
+  font-family: 'Carter One', cursive;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+}
+
+.game-card-desc {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+}
+
+/* --- Mobile --- */
+@media (max-width: 600px) {
+  .event-title { font-size: 3.5rem; }
+  .title-offset { font-size: 2.5rem; }
+  .club-logo { height: 50px; }
+  .content-wrapper { margin-bottom: 80px; } 
+  .woody-form-container { max-width: 90%; }
+}
+
+/* --- GRASS IMAGE --- */
+.grass-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh; 
+  background-position: bottom center;
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  z-index: 1;
+  pointer-events: none;
+}

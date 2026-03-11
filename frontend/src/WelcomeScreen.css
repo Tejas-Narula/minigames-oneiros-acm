@@ -1,0 +1,144 @@
+.welcome-message {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.team-welcome {
+  text-align: center;
+}
+
+.team-welcome h2 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.team-name-highlight {
+  color: #FFD700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.team-welcome .subtitle {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin: 0;
+}
+
+.status-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 40px 60px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  min-width: 400px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.status-box h3 {
+  font-size: 1.8rem;
+  margin: 15px 0 10px 0;
+  color: white;
+}
+
+.status-box p {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Loading State */
+.status-box.loading .spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #FFD700;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Waiting State */
+.status-box.waiting {
+  border-color: rgba(255, 193, 7, 0.5);
+}
+
+.waiting-animation {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.waiting-animation .dot {
+  width: 12px;
+  height: 12px;
+  background: #FFD700;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+.waiting-animation .dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.waiting-animation .dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* Active State */
+.status-box.active {
+  border-color: rgba(76, 175, 80, 0.8);
+  background: rgba(76, 175, 80, 0.15);
+}
+
+.pulse-indicator {
+  width: 60px;
+  height: 60px;
+  background: #4CAF50;
+  border-radius: 50%;
+  margin: 0 auto 20px auto;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(76, 175, 80, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .status-box {
+    min-width: 300px;
+    padding: 30px 40px;
+  }
+  
+  .team-welcome h2 {
+    font-size: 2rem;
+  }
+}
