@@ -10,13 +10,11 @@ interface ResultViewProps {
 }
 
 const ResultView: React.FC<ResultViewProps> = ({ result, theme, onRestart }) => {
-  const points = Math.round((2 / 5) * result.accuracy);
-
   return (
     <div className="w-full animate-in fade-in zoom-in duration-500 flex flex-col items-center">
       <div className="mb-8 text-center animate-bounce">
-        <h2 className="text-5xl font-bold mono" style={{ color: theme.successColor }}>🏆 {points} Points!</h2>
-        <p className="mt-2 opacity-60">Scored {Math.round(2/5 * 100)}% of your {result.accuracy}% accuracy</p>
+        <h2 className="text-5xl font-bold mono" style={{ color: theme.successColor }}>🏆 Finished!</h2>
+        <p className="mt-2 opacity-60">Accuracy: {result.accuracy}%</p>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 w-full">

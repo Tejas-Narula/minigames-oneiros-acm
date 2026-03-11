@@ -194,7 +194,7 @@ export default function MemeDecoder() {
           <h1 className="text-3xl font-bold tracking-tighter uppercase glow-text">Meme_Decoder.exe</h1>
         </div>
         <div className="text-xl">
-          SCORE: <span className="text-white">{score.toString().padStart(4, '0')}</span>
+          {currentIndex + 1} / {gameMemes.length || '?'}
         </div>
       </header>
 
@@ -283,7 +283,7 @@ export default function MemeDecoder() {
               </h2>
 
               <p className="text-xl mb-8 text-zinc-400">
-                FINAL SCORE: <span className="text-white font-bold">{score}</span>
+                {score / 10} / {gameMemes.length} decoded
               </p>
 
               <button

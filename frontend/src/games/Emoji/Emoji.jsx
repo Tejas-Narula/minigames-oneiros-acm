@@ -189,7 +189,7 @@ export default function MovieEmoji({ onUnlock }) {
           <div className="game-card">
             <h1>Game Complete!</h1>
             <div className="emoji-stage">🏆</div>
-            <h2><span className="score-text">{score}</span> Points!</h2>
+            <h2>Finished!</h2>
             <p style={{ fontSize: '0.9rem', opacity: 0.7, marginTop: '8px' }}>{score / 10} / {gameMovies.length} correct</p>
             <button className="game-btn btn-submit" onClick={() => { setCurrentIndex(0); setScore(0); setUserInput(''); setGameStatus('playing'); setLocalWins(0); setShowIntro(true); setGameMovies(shuffleArray(MOVIE_POOL).slice(0, TOTAL_QUESTIONS)); }}>Play Again</button>
           </div>
@@ -208,7 +208,6 @@ export default function MovieEmoji({ onUnlock }) {
           <div className="header">
             <div className="header-top">
               <span>Round {currentRound} / {TOTAL_ROUNDS}</span>
-              <span><span className="score-text">{score}</span> pts</span>
             </div>
 
             <div className="progress-track">

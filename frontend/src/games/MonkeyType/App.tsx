@@ -86,9 +86,6 @@ const MonkeyType: React.FC = () => {
       )}
 
       <footer className="py-8 text-center text-xs opacity-50 flex flex-col items-center justify-center gap-4">
-        <div className="flex items-center gap-4 text-lg md:text-xl mono">
-          <span>Points: <b style={{ color: activeTheme.mainColor }}>2/5 × Accuracy</b></span>
-        </div>
         <div className="flex items-center gap-4 opacity-70">
           <span>Press <kbd className="bg-gray-700/20 px-1 rounded">Tab</kbd> + <kbd className="bg-gray-700/20 px-1 rounded">Enter</kbd> to restart</span>
           <span>&bull;</span>

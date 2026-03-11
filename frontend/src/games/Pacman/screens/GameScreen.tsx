@@ -719,7 +719,6 @@ const GameScreen: React.FC<GameScreenProps> = ({ teamName, onGameOver, onGameWin
         style={{ maxWidth: `${MAX_BOARD_WIDTH}px` }}
       >
         <div className="flex flex-col gap-2">
-          <p className="text-yellow-400 text-lg md:text-2xl drop-shadow-md">SCORE: {uiState.score}</p>
           <p className="text-green-400 text-sm md:text-lg opacity-80">FPS: {uiState.fps}</p>
         </div>
         <div className="text-center flex flex-col gap-2">
@@ -830,22 +829,6 @@ const GameScreen: React.FC<GameScreenProps> = ({ teamName, onGameOver, onGameWin
             </div>
           );
         })}
-
-        {/* SCORE POPUPS */}
-        {uiState.popups.map(popup => (
-          <div
-            key={popup.id}
-            className="absolute text-cyan-200 font-bold pixel-font z-50 float-score pointer-events-none"
-            style={{
-              left: `${(popup.x + 0.5) * 100 / MAP_WIDTH}%`, // Center horizontally in tile
-              top: `${(popup.y + 0.5) * 100 / grid.length}%`, // Center vertically in tile
-              fontSize: 'min(3vw, 20px)',
-              textShadow: '2px 2px 0px #000'
-            }}
-          >
-            {popup.score}
-          </div>
-        ))}
 
         {/* Round Start / Pause Overlay */}
         {uiState.isPaused && (
